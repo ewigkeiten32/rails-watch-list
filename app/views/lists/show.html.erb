@@ -4,13 +4,12 @@
   <% @list.bookmarks.each do |bookmark| %>
     <li class="list-group-item">
       <%= bookmark.movie.title %> || Comment:
-      <%= bookmark.comment %>
-      <%= bookmark.rating %>
-      <%= bookmark.poster_url %>
+      <%= bookmark.comment %> || Rating:
+      <%= bookmark.movie.rating %>
       <%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" }, class: 'card-remove-link' do %>
       <i class="fas fa-trash-alt "></i>
-      <% end %> </li>
-
+      <% end %>
+      <%= link_to image_tag(bookmark.movie.poster_url, alt: "image", width:200)%></li>
   <% end %>
     </ul>
 </div>
